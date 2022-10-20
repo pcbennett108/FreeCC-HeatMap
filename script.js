@@ -39,6 +39,15 @@ let drawCells = () => {
       } else {
         return "Crimson";
       }
+    })
+    .attr("data-year", (item) => {
+      return item["year"];
+    })
+    .attr("data-month", (item) => {
+      return item["month"] - 1;
+    })
+    .attr("data-temp", (item) => {
+      return baseTemp + item["variance"];
     });
 };
 
