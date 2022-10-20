@@ -83,7 +83,7 @@ let drawCells = () => {
 let drawAxes = () => {
   let xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d"));
 
-  let yAxis = d3.axisLeft(yScale);
+  let yAxis = d3.axisLeft(yScale).tickFormat(d3.timeFormat("%B"));
 
   canvas
     .append("g")
