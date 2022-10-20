@@ -28,6 +28,9 @@ req.onload = () => {
   baseTemp = data["baseTemperature"];
   values = data["monthlyVariance"];
   console.log(baseTemp, values);
+  generateScales();
+  drawCells();
+  drawAxes();
 };
 
 req.send();
