@@ -21,7 +21,26 @@ let generateScales = () => {
   yScale = d3.scaleTime().range([padding, height - padding]);
 };
 
-let drawCells = () => {};
+let drawCells = () => {
+  canvas
+    .selectAll("rect")
+    .data(values)
+    .enter()
+    .append("rect")
+    .attr("class", "cell")
+    .attr("fill", (item) => {
+      variance = item["variance"];
+      if (variance <= -1) {
+        return "SteelBlue";
+      } else if (variance <= 0) {
+        return "LightSteelBlue";
+      } else if (variance <= 1) {
+        return "Orange";
+      } else {
+        return "Crimson";
+      }
+    });
+};
 
 let drawAxes = () => {
   let xAxis = d3.axisBottom(xScale);
